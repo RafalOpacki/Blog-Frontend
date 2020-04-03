@@ -1,1 +1,3 @@
-<p *ngFor="let post of posts$">{{ post.title }}</p>
+<section class="post-list__wrapper">
+  <app-post-card *ngFor="let post of posts$" [post]="this.post"></app-post-card>
+</section>

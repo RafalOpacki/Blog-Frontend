@@ -2,4 +2,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: Montserrat, sans-serif;
+}
+
+:root {
+  /* COLORS */
+  --primary: #3c4858;
+  --secondary: #868686;
+  --highlight: #e96656;
+  /* COLORS */
 }
