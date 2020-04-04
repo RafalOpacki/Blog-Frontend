@@ -1,3 +1,7 @@
 <section class="post-list__wrapper">
   <app-post-card *ngFor="let post of posts$" [post]="this.post"></app-post-card>
 </section>
+<app-pagination
+  [pageableData$]="pageableData$"
+  (onClick)="changePage($event)"
+></app-pagination>

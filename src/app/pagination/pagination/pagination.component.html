@@ -1,0 +1,20 @@
+<div class="pagination__wrapper">
+  <button
+    [disabled]="isPrevButtonDisabled"
+    type="button"
+    value="prev"
+    (click)="handleClick($event)"
+    class="pagination__button"
+  >
+    Previous Page
+  </button>
+  <button
+    [disabled]="isNextButtonDisabled"
+    type="button"
+    value="next"
+    (click)="handleClick($event)"
+    class="pagination__button"
+  >
+    Next Page
+  </button>
+</div>
