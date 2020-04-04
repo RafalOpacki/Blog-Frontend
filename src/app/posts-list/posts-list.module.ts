@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,11 +9,17 @@ import { BackToTopService } from 'src/services/back-to-top-service/back-to-top.s
 import { PostsListComponent } from './posts-list.component';
 import { PostCardComponent } from './post-card/post-card/post-card.component';
 import { PaginationComponent } from '../pagination/pagination/pagination.component';
+import { PostPageComponent } from './post-page/post-page.component';
 
 @NgModule({
-  declarations: [PostsListComponent, PostCardComponent, PaginationComponent],
+  declarations: [
+    PostsListComponent,
+    PostCardComponent,
+    PaginationComponent,
+    PostPageComponent,
+  ],
   providers: [PostsApiService, BackToTopService],
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule, RouterModule],
   bootstrap: [PostsListComponent],
 })
 export class PostsListModule {}

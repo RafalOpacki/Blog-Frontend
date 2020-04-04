@@ -4,7 +4,6 @@
 
 .post-card__title {
   font-size: 28px;
-  color: var(--primary);
   margin-bottom: 10px;
 }
 
@@ -25,4 +24,10 @@
 .post-card__author {
   color: var(--primary);
   font-weight: 600;
+}
+
+.post-card__link {
+  text-decoration: none;
+  color: var(--primary);
+  cursor: pointer;
 }

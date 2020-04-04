@@ -1,6 +1,8 @@
 <article class="post-card__wrapper">
   <h4 class="post-card__category">{{ post.category }}</h4>
-  <h3 class="post-card__title">{{ post.title }}</h3>
+  <h3 class="post-card__title">
+    <a class="post-card__link" routerLink="{{ post._id }}">{{ post.title }}</a>
+  </h3>
   <p class="post-card__content">{{ content }} ...</p>
   <p class="post-card__author">Author: {{ post.author }}</p>
 </article>
