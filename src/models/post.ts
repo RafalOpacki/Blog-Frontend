@@ -1,10 +1,10 @@
 export interface Post {
-  _id: String;
-  tags: Array<String>;
-  title: String;
-  content: String;
-  category: String;
-  author: String;
+  _id: string;
+  tags: Array<string>;
+  title: string;
+  content: string;
+  category: string;
+  author: string;
   creationDate: Date;
-  _v: String;
+  _v: string;
 }

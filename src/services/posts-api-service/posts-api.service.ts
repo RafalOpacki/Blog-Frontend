@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { ToastService } from 'src/services/toast-service/toast.service';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { PostsApiDataType } from 'src/models/postsApiDataType';
 import { Post } from 'src/models/post';
 
@@ -7,20 +9,53 @@ import { Post } from 'src/models/post';
   providedIn: 'root',
 })
 export class PostsApiService {
-  limit: Number = 10;
+  constructor(
+    private _http: HttpClient,
+    private _toastService: ToastService,
+    private _router: Router
+  ) {}
+  backendAPI: string = 'https://nodejs-blog-backend.herokuapp.com';
 
-  constructor(private _http: HttpClient) {}
+  limit: number = 10;
 
-  getAllEndpoint = (page: Number): string =>
-    `http://localhost:3000/posts/getAll?limit=${this.limit}&page=${page}`;
+  showSuccessMessage(content: string) {
+    this._toastService.showSuccessMessage(content);
+  }
 
-  getAllPosts(pageNumber: Number) {
+  showErrorMessage(content: string) {
+    this._toastService.showErrorMessage(content);
+  }
+
+  // GET ALL
+
+  getAllEndpoint = (page: number): string =>
+    `${this.backendAPI}/posts/getAll?limit=${this.limit}&page=${page}`;
+
+  getAllPosts(pageNumber: number) {
     return this._http.get<PostsApiDataType>(this.getAllEndpoint(pageNumber));
   }
 
-  getByIdEndpoint = (id: String) => `http://localhost:3000/posts/get/${id}`;
+  // GET BY ID
 
-  getById(id: String) {
+  getByIdEndpoint = (id: string) => `${this.backendAPI}/posts/get/${id}`;
+
+  getById(id: string) {
     return this._http.get<Post>(this.getByIdEndpoint(id));
+  }
+
+  // ADD NEW
+
+  addNewPostEndpoint = `${this.backendAPI}/posts/addPost`;
+
+  addNewPost(post: Post) {
+    const formBody = { ...post, tags: [post.tags] };
+
+    this._http.post(this.addNewPostEndpoint, formBody).subscribe(
+      (data: PostsApiDataType) => {
+        this.showSuccessMessage(data.message);
+        this._router.navigate(['/']);
+      },
+      (error: HttpErrorResponse) => this.showErrorMessage(error.error.message)
+    );
   }
 }

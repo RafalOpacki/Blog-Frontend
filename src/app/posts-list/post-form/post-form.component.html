@@ -1,0 +1,24 @@
+<div class="form__wrapper">
+  <p class="font__header">Add new post</p>
+  <form class="form__form" (ngSubmit)="onSubmit(formData)" #formData="ngForm">
+    <input class="form__input" name="title" placeholder="title" ngModel />
+    <textarea
+      class="form__textarea"
+      name="content"
+      placeholder="content"
+      rows="8"
+      ngModel
+    ></textarea>
+    <input class="form__input" name="category" placeholder="category" ngModel />
+    <input class="form__input" name="author" placeholder="author" ngModel />
+    <input class="form__input" name="tags" placeholder="tags" ngModel />
+    <div class="form__buttons-wrapper">
+      <app-button type="submit" text="submit"></app-button>
+      <app-button
+        type="button"
+        text="cancel"
+        (handleClick)="onCancel()"
+      ></app-button>
+    </div>
+  </form>
+</div>

@@ -8,7 +8,7 @@ import { Post } from 'src/models/post';
 })
 export class PostCardComponent implements OnInit {
   @Input() post: Post;
-  content: String = '';
+  content: string = '';
 
   constructor() {}
 

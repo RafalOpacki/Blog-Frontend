@@ -25,11 +25,11 @@ export class PostsListComponent implements OnInit {
     });
   }
 
-  changePage(currentPageData: Number) {
+  changePage(currentPageData: number) {
+    this._backToTopService.backToTop();
     this._postApiService.getAllPosts(currentPageData).subscribe((data) => {
       this.posts$ = data.posts;
       this.pageableData$ = data.pageable;
     });
-    this._backToTopService.backToTop();
   }
 }

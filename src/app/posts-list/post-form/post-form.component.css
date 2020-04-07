@@ -1,0 +1,46 @@
+.form__form {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+}
+
+.font__header {
+  font-size: 30px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form__wrapper {
+  margin-top: 100px;
+}
+
+.form__input,
+.form__textarea {
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid var(--primary);
+  outline: none;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.form__input {
+  height: 50px;
+}
+
+.form__input:focus,
+textarea:focus {
+  border-bottom: 1px solid var(--highlight);
+}
+
+.form__buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 300px;
+  margin: 30px auto;
+}

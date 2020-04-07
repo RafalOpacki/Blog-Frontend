@@ -1,6 +1,6 @@
 export interface Pageable {
-  pagesCount: Number;
-  limit: Number;
-  currentPage: Number;
-  postsCount: Number;
+  pagesCount: number;
+  limit: number;
+  currentPage: number;
+  postsCount: number;
 }
