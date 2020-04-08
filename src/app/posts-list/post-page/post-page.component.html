@@ -4,7 +4,14 @@
 <div class="post-page__wrapper" *ngIf="!isFormVisible && !isLoading">
   <div class="post-page__header">
     <h2 class="post-page__title">{{ post$?.title }}</h2>
-    <app-button text="EDIT" (handleClick)="toggleForm()"></app-button>
+    <div class="post-page__buttons-wrapper">
+      <app-button text="EDIT" (handleClick)="toggleForm()"
+        ><mat-icon>edit</mat-icon></app-button
+      >
+      <app-button text="DELETE" (handleClick)="toggleConfirmModal()">
+        <mat-icon>delete</mat-icon>
+      </app-button>
+    </div>
   </div>
   <p class="post-page__content">{{ post$?.content }}</p>
   <p class="post-page__author">Author: {{ post$?.author }}</p>
@@ -13,8 +20,14 @@
   </span>
 </div>
 <app-post-form
+  (getPostData)="getPostData()"
   *ngIf="isFormVisible"
   [isEditing]="true"
   (toggleForm)="toggleForm()"
   [post]="post$"
 ></app-post-form>
+<app-confirm-modal
+  *ngIf="isDeleteModalVisible"
+  (handleToggleModal)="toggleConfirmModal()"
+  (handleDelete)="handleDelete()"
+></app-confirm-modal>

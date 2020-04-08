@@ -1,0 +1,29 @@
+.confirm-modal__wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  display: grid;
+  place-items: center;
+}
+
+.confirm-modal__body {
+  padding: 25px;
+  max-width: 300px;
+  background-color: white;
+  position: relative;
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.confirm-modal__buttons-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+}

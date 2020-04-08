@@ -64,9 +64,18 @@ export class PostsApiService {
   editPostEndpoint = (postId: string) =>
     `${this.backendAPI}/posts/edit/${postId}`;
 
-  editPost(postId: string, post: Post) {
-    const formBody = post;
+  editPost(postId: string, newPostData: Post) {
+    const formBody = newPostData;
 
     return this._http.patch(this.editPostEndpoint(postId), formBody);
+  }
+
+  // DELETE POST
+
+  deletePostEndpoint = (postId: string) =>
+    `${this.backendAPI}/posts/delete/${postId}`;
+
+  deletePost(postId: string) {
+    return this._http.delete(this.deletePostEndpoint(postId));
   }
 }

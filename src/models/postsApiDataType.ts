@@ -6,3 +6,8 @@ export interface PostsApiDataType {
   pageable: Pageable;
   message: string;
 }
+
+export interface EditResponseApiDataType {
+  post: Post;
+  message: string;
+}

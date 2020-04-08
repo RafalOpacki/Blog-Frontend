@@ -22,6 +22,7 @@ import { PaginationComponent } from '../pagination/pagination/pagination.compone
 import { PostPageComponent } from './post-page/post-page.component';
 import { PostFormComponent } from './post-form/post-form.component';
 import { ButtonComponent } from './../button/button.component';
+import { ConfirmModalComponent } from './../confirm-modal/confirm-modal.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ButtonComponent } from './../button/button.component';
     PostPageComponent,
     PostFormComponent,
     ButtonComponent,
+    ConfirmModalComponent,
   ],
   providers: [PostsApiService, BackToTopService, ToastrService, ToastService],
   imports: [

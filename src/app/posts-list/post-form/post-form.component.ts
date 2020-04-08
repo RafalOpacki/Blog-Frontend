@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { EditResponseApiDataType } from 'src/models/postsApiDataType';
 import { PostsApiDataType } from 'src/models/postsApiDataType';
 import { Post } from 'src/models/post';
 import { PostsApiService } from 'src/services/posts-api-service/posts-api.service';
@@ -17,6 +18,7 @@ export class PostFormComponent implements OnInit {
   @Input() isEditing = false;
   @Input() post: Post;
   @Output() toggleForm: EventEmitter<void> = new EventEmitter();
+  @Output() getPostData: EventEmitter<void> = new EventEmitter();
 
   visible: boolean = true;
   selectable: boolean = true;
@@ -41,9 +43,10 @@ export class PostFormComponent implements OnInit {
     const formData = { ...form.value, tags: this.arrayOfTags };
     if (this.isEditing) {
       this._postsApiService.editPost(this.post._id, formData).subscribe(
-        (data: PostsApiDataType) => {
+        (data: EditResponseApiDataType) => {
           this._postsApiService.showSuccessMessage(data.message);
           this.toggleForm.emit();
+          this.getPostData.emit();
         },
         (error: HttpErrorResponse) =>
           this._postsApiService.showErrorMessage(error.error.message)

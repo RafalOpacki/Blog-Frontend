@@ -1,0 +1,9 @@
+<div class="confirm-modal__wrapper">
+  <div class="confirm-modal__body">
+    {{ text }}
+    <div class="confirm-modal__buttons-wrapper">
+      <app-button (handleClick)="handleClick()" [text]="delete"></app-button>
+      <app-button (handleClick)="handleClose()" [text]="cancel"></app-button>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,8 @@
 .post-page__wrapper {
   width: 80%;
   margin: 0 auto;
-  padding-top: 150px;
+  margin-top: 100px;
+  max-width: 1200px;
 }
 
 .post-page__title {
@@ -36,7 +37,25 @@
 
 .post-page__header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
   justify-content: space-between;
+}
+
+.post-page__buttons-wrapper {
+  width: 220px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+}
+
+@media (min-width: 768px) {
+  .post-page__header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .post-page__buttons-wrapper {
+    margin: 0;
+  }
 }

@@ -14,6 +14,7 @@ export class PostPageComponent implements OnInit {
   post$: Post;
   isFormVisible: boolean = false;
   isLoading: boolean = true;
+  isDeleteModalVisible: boolean = false;
 
   constructor(
     private _postsApiService: PostsApiService,
@@ -22,6 +23,10 @@ export class PostPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getPostData();
+  }
+
+  getPostData() {
     const id: string = this._router.url.substring(1);
     this._postsApiService.getById(id).subscribe(
       (data: Post) => {
@@ -33,7 +38,27 @@ export class PostPageComponent implements OnInit {
     );
   }
 
+  handleDelete() {
+    interface Message {
+      message: string;
+    }
+    const postId = this.post$._id;
+
+    this._postsApiService.deletePost(postId).subscribe(
+      (data: Message) => {
+        this._postsApiService.showSuccessMessage(data.message);
+        this._router.navigate(['/']);
+      },
+      (error: HttpErrorResponse) =>
+        this._toastService.showErrorMessage(error.message)
+    );
+  }
+
   toggleForm() {
     this.isFormVisible = !this.isFormVisible;
+  }
+
+  toggleConfirmModal() {
+    this.isDeleteModalVisible = !this.isDeleteModalVisible;
   }
 }
