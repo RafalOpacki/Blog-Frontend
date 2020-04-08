@@ -12,6 +12,7 @@ import { PostsApiService } from 'src/services/posts-api-service/posts-api.servic
 })
 export class PostPageComponent implements OnInit {
   post$: Post;
+  isFormVisible: boolean = false;
 
   constructor(
     private _postsApiService: PostsApiService,
@@ -28,5 +29,9 @@ export class PostPageComponent implements OnInit {
       (error: HttpErrorResponse) =>
         this._toastService.showErrorMessage(error.error.message)
     );
+  }
+
+  toggleForm() {
+    this.isFormVisible = !this.isFormVisible;
   }
 }

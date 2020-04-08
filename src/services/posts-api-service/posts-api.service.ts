@@ -48,7 +48,7 @@ export class PostsApiService {
   addNewPostEndpoint = `${this.backendAPI}/posts/addPost`;
 
   addNewPost(post: Post) {
-    const formBody = { ...post, tags: [post.tags] };
+    const formBody = post;
 
     this._http.post(this.addNewPostEndpoint, formBody).subscribe(
       (data: PostsApiDataType) => {
@@ -57,5 +57,16 @@ export class PostsApiService {
       },
       (error: HttpErrorResponse) => this.showErrorMessage(error.error.message)
     );
+  }
+
+  // EDIT POST
+
+  editPostEndpoint = (postId: string) =>
+    `${this.backendAPI}/posts/edit/${postId}`;
+
+  editPost(postId: string, post: Post) {
+    const formBody = post;
+
+    return this._http.patch(this.editPostEndpoint(postId), formBody);
   }
 }

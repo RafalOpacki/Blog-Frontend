@@ -1,3 +1,4 @@
+// modules
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, OnInit } from '@angular/core';
@@ -5,6 +6,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 // services
 import { PostsApiService } from 'src/services/posts-api-service/posts-api.service';
 import { BackToTopService } from 'src/services/back-to-top-service/back-to-top.service';
@@ -35,6 +39,9 @@ import { ButtonComponent } from './../button/button.component';
     FormsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
+    MatChipsModule,
+    MatInputModule,
+    MatIconModule,
   ],
   bootstrap: [PostsListComponent],
 })

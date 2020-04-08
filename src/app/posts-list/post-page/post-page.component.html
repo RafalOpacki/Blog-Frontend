@@ -1,8 +1,17 @@
-<div class="post-page__wrapper">
-  <h2 class="post-page__title">{{ post$?.title }}</h2>
+<div class="post-page__wrapper" *ngIf="!isFormVisible">
+  <div class="post-page__header">
+    <h2 class="post-page__title">{{ post$?.title }}</h2>
+    <app-button text="EDIT" (handleClick)="toggleForm()"></app-button>
+  </div>
   <p class="post-page__content">{{ post$?.content }}</p>
   <p class="post-page__author">Author: {{ post$?.author }}</p>
   <span class="post-page__category-wrapper">
     {{ post$?.category }}
   </span>
 </div>
+<app-post-form
+  *ngIf="isFormVisible"
+  [isEditing]="true"
+  (toggleForm)="toggleForm()"
+  [post]="post$"
+></app-post-form>

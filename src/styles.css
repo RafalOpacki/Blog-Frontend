@@ -12,3 +12,14 @@
   --highlight: #e96656;
   /* COLORS */
 }
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border: 1px solid var(--highlight);
+}
+
+.error-message {
+  font-size: 10px;
+  color: var(--highlight);
+  margin-bottom: 10px;
+}
