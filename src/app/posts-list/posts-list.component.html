@@ -1,7 +1,15 @@
-<section class="post-list__wrapper">
-  <app-post-card *ngFor="let post of posts$" [post]="this.post"></app-post-card>
-</section>
-<app-pagination
-  [pageableData$]="pageableData$"
-  (onClick)="changePage($event)"
-></app-pagination>
+<div class="loader-wrapper" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+<main>
+  <section class="post-list__wrapper" *ngIf="!isLoading">
+    <app-post-card
+      *ngFor="let post of posts$"
+      [post]="this.post"
+    ></app-post-card>
+  </section>
+  <app-pagination
+    [pageableData$]="pageableData$"
+    (onClick)="changePage($event)"
+  ></app-pagination>
+</main>

@@ -12,6 +12,7 @@ import { BackToTopService } from 'src/services/back-to-top-service/back-to-top.s
 export class PostsListComponent implements OnInit {
   posts$: Array<Post> = [];
   pageableData$: Pageable = null;
+  isLoading: boolean = true;
 
   constructor(
     private _postApiService: PostsApiService,
@@ -22,6 +23,7 @@ export class PostsListComponent implements OnInit {
     this._postApiService.getAllPosts(1).subscribe((data) => {
       this.posts$ = data.posts;
       this.pageableData$ = data.pageable;
+      this.isLoading = false;
     });
   }
 

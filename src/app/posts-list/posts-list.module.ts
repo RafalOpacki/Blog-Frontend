@@ -9,6 +9,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 // services
 import { PostsApiService } from 'src/services/posts-api-service/posts-api.service';
 import { BackToTopService } from 'src/services/back-to-top-service/back-to-top.service';
@@ -42,6 +43,7 @@ import { ButtonComponent } from './../button/button.component';
     MatChipsModule,
     MatInputModule,
     MatIconModule,
+    MatProgressSpinnerModule,
   ],
   bootstrap: [PostsListComponent],
 })

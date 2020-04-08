@@ -13,6 +13,7 @@ import { PostsApiService } from 'src/services/posts-api-service/posts-api.servic
 export class PostPageComponent implements OnInit {
   post$: Post;
   isFormVisible: boolean = false;
+  isLoading: boolean = true;
 
   constructor(
     private _postsApiService: PostsApiService,
@@ -25,6 +26,7 @@ export class PostPageComponent implements OnInit {
     this._postsApiService.getById(id).subscribe(
       (data: Post) => {
         this.post$ = data;
+        this.isLoading = false;
       },
       (error: HttpErrorResponse) =>
         this._toastService.showErrorMessage(error.error.message)

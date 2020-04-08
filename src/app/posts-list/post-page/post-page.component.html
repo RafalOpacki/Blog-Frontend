@@ -1,4 +1,7 @@
-<div class="post-page__wrapper" *ngIf="!isFormVisible">
+<div class="loader-wrapper" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="post-page__wrapper" *ngIf="!isFormVisible && !isLoading">
   <div class="post-page__header">
     <h2 class="post-page__title">{{ post$?.title }}</h2>
     <app-button text="EDIT" (handleClick)="toggleForm()"></app-button>
