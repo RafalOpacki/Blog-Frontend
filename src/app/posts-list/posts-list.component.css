@@ -5,3 +5,24 @@
   display: grid;
   grid-gap: 40px;
 }
+
+.search-input__input {
+  outline: none;
+  border: 1px solid var(--primary);
+  width: 100%;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.search-input__wrapper {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  margin-top: 50px;
+}
+
+@media (min-width: 1024px) {
+  .search-input__input {
+    width: 70%;
+  }
+}

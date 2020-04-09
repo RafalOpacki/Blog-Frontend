@@ -78,4 +78,15 @@ export class PostsApiService {
   deletePost(postId: string) {
     return this._http.delete(this.deletePostEndpoint(postId));
   }
+
+  // SEARCH (BY TITLE)
+
+  searchPostsEndpoint = (searchQuery: string): string =>
+    `${this.backendAPI}/posts/getAll?search=${searchQuery}`;
+
+  searchPosts(searchQuery: string) {
+    return this._http.get<PostsApiDataType>(
+      this.searchPostsEndpoint(searchQuery)
+    );
+  }
 }

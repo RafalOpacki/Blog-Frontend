@@ -3,4 +3,6 @@ export interface Pageable {
   limit: number;
   currentPage: number;
   postsCount: number;
+  searchPostsCount: number;
+  searchPagesCount: number;
 }

@@ -3,10 +3,19 @@
 </div>
 <main>
   <section class="post-list__wrapper" *ngIf="!isLoading">
+    <div class="search-input__wrapper">
+      <input
+        class="search-input__input"
+        placeholder="search"
+        [(ngModel)]="inputValue"
+        (ngModelChange)="searchPosts($event)"
+      />
+    </div>
     <app-post-card
       *ngFor="let post of posts$"
       [post]="this.post"
     ></app-post-card>
+    <p *ngIf="isNothingFoundMessageVisible">Nothing found</p>
   </section>
   <app-pagination
     [pageableData$]="pageableData$"

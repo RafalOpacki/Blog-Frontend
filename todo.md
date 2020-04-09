@@ -3,4 +3,5 @@
 3. ENV for endpoints
 4. Service and component for error messages
 5. Service and component for chips assembly
-6. Move more login to services instead of components
+6. Move more logic to services instead of components
+7. Add floating placeholders / labels

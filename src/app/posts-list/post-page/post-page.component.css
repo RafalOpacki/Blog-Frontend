@@ -1,14 +1,15 @@
 .post-page__wrapper {
   width: 80%;
-  margin: 0 auto;
-  margin-top: 100px;
+  margin: 80px auto;
   max-width: 1200px;
+  word-break: keep-all;
 }
 
 .post-page__title {
   font-size: 28px;
   color: var(--primary);
   margin-right: 20px;
+  width: 90%;
 }
 
 .post-page__content {
